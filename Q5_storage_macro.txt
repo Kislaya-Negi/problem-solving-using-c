@@ -1,0 +1,6 @@
+$ gcc -std=c11 -Wall -Wextra -pedantic storage_macro.c -o storage_macro
+$ ./storage_macro
+automatic=1, static=1
+automatic=1, static=2
+automatic=1, static=3
+SQUARE(3 + 2) = 25

@@ -1,0 +1,16 @@
+$ gcc -std=c11 -Wall -Wextra -pedantic student_struct.c -o student_struct
+$ ./student_struct
+
+1.Add 2.Display 3.Search by roll 0.Exit
+Choice: Roll, name (one word), marks: 
+1.Add 2.Display 3.Search by roll 0.Exit
+Choice: Roll, name (one word), marks: 
+1.Add 2.Display 3.Search by roll 0.Exit
+Choice: 101 Asha 88.50
+102 Ravi 91.00
+
+1.Add 2.Display 3.Search by roll 0.Exit
+Choice: Roll to find: Found: 102 Ravi 91.00
+
+1.Add 2.Display 3.Search by roll 0.Exit
+Choice: 

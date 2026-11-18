@@ -1,0 +1,4 @@
+$ gcc -std=c11 -Wall -Wextra -pedantic struct_pointer.c -o struct_pointer
+$ ./struct_pointer
+After pointer function: id=202 marks=95.0
+Original after value function: marks=95.0; returned copy marks=50.0

@@ -1,0 +1,66 @@
+SMALL UNIVERSITY NETWORK SECURITY PLAN
+
+1. Network zones
+- Internet edge: ISP router connected to a next-generation firewall.
+- DMZ: public web server and mail gateway; no direct route from DMZ to internal user VLANs.
+- Internal VLANs: Administration, Faculty, Students, Servers, and Network Management.
+- Remote access: VPN terminates on the firewall and authenticates users with MFA.
+
+2. High-level diagram
+
+                  INTERNET
+                     |
+                 ISP Router
+                     |
+             [Firewall / NAT]
+                /         \
+             DMZ           [IDS/IPS sensor]
+          Web + Mail              |
+                |          Core L3 Switch
+                |                 |
+          DMZ restricted     +-----+------+--------+---------+
+                            |     |      |        |         |
+                          Admin Faculty Students Servers  Management
+                           VLAN    VLAN    VLAN    VLAN      VLAN
+                                    ^
+                                    |
+                              VPN users
+                         (MFA + role-based ACL)
+
+3. Firewall policy (default deny)
+- Allow established/related return traffic.
+- Allow inbound TCP 443 to the public web server in the DMZ only.
+- Allow inbound mail ports only to the mail gateway if the university hosts email.
+- Deny unsolicited Internet traffic to internal VLANs.
+- Allow outbound DNS only to approved resolvers; allow web access according to policy.
+- Permit VPN traffic only to the VPN gateway; require MFA and device checks where available.
+- Log denied traffic and security-relevant allows; review logs regularly.
+
+4. ACL policy on the Layer-3 switch
+- Students: Internet and approved learning systems; deny administration, management, and sensitive server subnets.
+- Faculty: learning systems, printing, and approved research services.
+- Administration: student information and finance systems only for authorized roles.
+- Servers: only required service-to-service ports; deny unnecessary lateral movement.
+- Management VLAN: accessible only from designated IT administrator devices.
+- Apply least privilege and explicitly document permitted source, destination, protocol, and port.
+
+5. VPN
+- Use IPsec or SSL VPN with MFA.
+- Assign a dedicated VPN address pool.
+- Apply role-based ACLs after authentication; do not grant full LAN access by default.
+- Disable accounts promptly when users leave and review VPN access periodically.
+
+6. IDS/IPS monitoring point
+- Place a network IDS/IPS at the firewall-to-core boundary using a TAP/SPAN feed or inline deployment.
+- IDS detects suspicious activity and alerts; IPS can block matching traffic when safely configured.
+- Monitor scans, repeated authentication failures, malware command-and-control indicators, and unusual outbound traffic.
+- Tune signatures to reduce false positives and forward alerts to a central log/SIEM service.
+
+7. Operational controls
+- Patch firewall, switches, servers, and endpoints.
+- Back up configurations and test restoration.
+- Use endpoint protection, strong passwords, MFA, and security awareness training.
+- Retain logs according to university policy; restrict access to logs.
+- Test firewall/ACL rules after changes and maintain an incident-response contact list.
+
+Assumption: one campus, one Internet connection, managed Layer-3 switching, and a small set of public-facing services. Exact IP ranges and port lists must be adapted to the deployed applications.

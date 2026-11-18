@@ -1,0 +1,15 @@
+$ gcc -E main.c -o main.i
+
+$ gcc -S main.i -o main.s
+
+$ gcc -c main.s -o main.o
+
+$ gcc -c add.c -o add.o
+
+$ gcc -c multiply.c -o multiply.o
+
+$ gcc main.o add.o multiply.o -o multi_file
+
+$ ./multi_file
+Sum = 17
+Product = 60

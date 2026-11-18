@@ -1,0 +1,5 @@
+$ gcc -std=c11 -Wall -Wextra -pedantic pointer_array.c -o pointer_array
+$ ./pointer_array
+10 20 30 40 
+Sum = 100
+Average = 25.00

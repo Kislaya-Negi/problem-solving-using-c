@@ -1,0 +1,5 @@
+$ gcc -std=c11 -Wall -Wextra -pedantic file_records.c -o file_records
+$ ./file_records
+Records read from file:
+1 Asha 88.50
+2 Ravi 91.00

@@ -1,0 +1,5 @@
+$ gcc -std=c11 -Wall -Wextra -pedantic strings.c -o strings
+$ ./strings
+Enter a single word: Vowels = 2
+Reverse = madam
+Palindrome = Yes

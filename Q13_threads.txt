@@ -1,0 +1,4 @@
+$ gcc threads_mutex.c -pthread -o threads_mutex
+$ ./threads_mutex
+Without mutex (race condition) counter = 286361 (expected 400000)
+With mutex counter = 400000 (expected 400000)

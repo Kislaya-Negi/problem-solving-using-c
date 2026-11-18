@@ -1,0 +1,6 @@
+$ gcc -std=c11 -Wall -Wextra -pedantic struct_union.c -o struct_union
+$ ./struct_union
+sizeof(struct) = 16
+sizeof(union)  = 8
+Struct offsets: code=0 number=4 value=8
+Union members all begin at offset 0 (same storage).

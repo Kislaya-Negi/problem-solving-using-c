@@ -1,0 +1,14 @@
+$ gcc -std=c11 -Wall -Wextra -pedantic calculator.c -o calculator
+$ ./calculator
+
+1.Add  2.Subtract  3.Multiply  4.Divide  0.Exit
+Choice: Enter two numbers: Result = 15.00
+
+1.Add  2.Subtract  3.Multiply  4.Divide  0.Exit
+Choice: Enter two numbers: Error: division by zero.
+
+1.Add  2.Subtract  3.Multiply  4.Divide  0.Exit
+Choice: Invalid choice. Select 0 to 4.
+
+1.Add  2.Subtract  3.Multiply  4.Divide  0.Exit
+Choice: Calculator closed.

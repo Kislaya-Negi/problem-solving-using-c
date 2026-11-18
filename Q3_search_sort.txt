@@ -1,0 +1,5 @@
+$ gcc -std=c11 -Wall -Wextra -pedantic search_sort.c -o search_sort
+$ ./search_sort
+Linear search: key 9 at index 2; comparisons = 3
+Sorted: 1 3 5 7 9 
+Bubble-sort comparisons = 10
